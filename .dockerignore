@@ -1,0 +1,6 @@
+*.pyc
+*.md
+*.in
+*.toml
+tests/
+env/

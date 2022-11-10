@@ -1,0 +1,51 @@
+# pyproject.toml
+
+[build-system]
+requires      = ["setuptools>=61.0.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wswebcam"
+version = "1.0.0"
+description = "Access any serial device in your lan"
+readme = "README.md"
+authors = [{ name = "Henrycke Bozza Schenberk", email = "oschenberk@gmail.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+]
+keywords = ["webcam", "opencv", "streaming", "websocket", "localhost", "image"]
+dependencies = [
+    "opencv-contrib-python>=4.6",
+    "websockets>=10.3",
+]
+requires-python = ">=3.9"
+
+[project.optional-dependencies]
+dev = ["black", "bumpver", "isort", "pip-tools", "unittest"]
+
+[project.urls]
+Homepage = "https://github.com/HenryckeBSchenberk/wswebcam"
+
+[project.scripts]
+wswebcam = "wswebcam.__main__:main"
+
+[tool.bumpver]
+current_version = "1.0.0"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "bump version {old_version} -> {new_version}"
+commit = true
+tag = true
+push = true
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    'current_version = "{version}"',
+]
+"README.md" = [
+    "{version}",
+    "{pep440_version}",
+]
+"src/wswebcam/__init__.py" = ["{version}"]
