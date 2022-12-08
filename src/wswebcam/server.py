@@ -23,6 +23,7 @@ class Server:
         self.server = websockets.serve(self.handler, self.host, int(self.port))
         self.camera = Camera(device)
         self._async_stopped = self.loop.create_future()
+
     async def __aenter__(self):
         return await self.server.__aenter__()
 

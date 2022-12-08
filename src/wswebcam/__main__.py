@@ -1,6 +1,6 @@
 # Argparser
 import argparse
-parser = argparse.ArgumentParser(description='wspyserial - Websocket to Serial Bridge')
+parser = argparse.ArgumentParser(description='wswebcam - Websocket to Serial Bridge')
 parser.add_argument('-c', '--client', action='store_true', help='Run as a client')
 parser.add_argument('-s', '--server', action='store_true', help='Run as a server')
 parser.add_argument('-p', '--port', type=int, default=8010, help='Port to listen on')

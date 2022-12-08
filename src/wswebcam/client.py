@@ -15,11 +15,17 @@ class Camera:
         self.uri = uri
 
     async def __aenter__(self):
-        self.websocket = await websockets.connect(self.uri)
+        await self.connect()
         return self
 
     async def __aexit__(self, *args):
+        await self.disconnect()
+
+    async def disconnect(self):
         await self.websocket.close()
+
+    async def connect(self):
+        self.websocket = await websockets.connect(self.uri)
 
     @property
     def frame(self):
